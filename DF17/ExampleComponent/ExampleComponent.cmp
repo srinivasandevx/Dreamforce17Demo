@@ -1,0 +1,26 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="state" type="String" default="Inactive"/>
+    <aura:attribute name="activating" type="Boolean" default="true"/>
+    <aura:attribute name="activationMessage" type="String" />
+    <aura:attribute name="active" type="boolean" default="false"/>
+    <aura:handler event="c:ActivateComponentEvent" action="{!c.handleActivateEvent}"/>
+    <aura:handler event="c:AllReady" action="{!c.allReady}"/>
+    <aura:registerEvent name="activateComponent" type="c:ActivateComponentEvent"/>
+    <aura:registerEvent name="readyCheck" type="c:ReadyCheck"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="slds-theme_default">
+        <div class="slds-box" >
+            <div class="slds-align_absolute-center">
+                <p>{!'Current mode: ' + v.state}</p>
+            </div>
+            <div class="slds-align_absolute-center" style="{!if(v.activating, '', 'display:none;')}">
+                <p>{!v.activationMessage}</p>
+            </div>
+            <div class="slds-align_absolute-center">
+                <button class="slds-button slds-button--neutral" disabled="{!v.active}" onclick="{!c.activate}">Activate!</button>
+            </div>
+        </div>
+     </div>
+</aura:component>

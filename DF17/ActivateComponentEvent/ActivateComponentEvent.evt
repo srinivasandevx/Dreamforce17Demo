@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Activates a draft component" >
+    <aura:attribute name="componentType" type="String" />
+    <aura:attribute name="activating" type="Boolean" />
+</aura:event>
