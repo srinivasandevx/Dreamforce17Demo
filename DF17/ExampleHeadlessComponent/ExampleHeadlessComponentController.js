@@ -4,6 +4,7 @@
         if(cmp.get('v.numComponentsReady') === 2){
             var allReady = $A.get("e.gsawers:AllReady");
             allReady.fire();
+//
         }
 	}
 })
